@@ -1,3 +1,9 @@
+def err():
+    print('''\nГде-то ты допустил ошибку, давай попробуем еще раз!
+                Да - "+", нет - "-".''')
+    ans = input('Ответ: ')
+    return ans
+
 print('Ты можешь загадать любое число на интервале от 0 до числа, которое сам укажешь.')
 interval_stop = int(input('Укажи до какого числа будет интервал? - '))
 print(f'''\nЗагадывай любое чило от 0 до {interval_stop}.
@@ -23,27 +29,21 @@ while True:
             elif answer == '-':
                 end = middle - 1
             else:
-                print('''\nГде-то ты допустил ошибку, давай попробуем еще раз!
-                        Да - "+", нет - "-".''')
-                ans = input('Ответ: ')
+                ans = err()
                 if ans == '+':
                     continue
                 else:
                     print('Конец!!')
                     break
         else:
-            print('''\nГде-то ты допустил ошибку, давай попробуем еще раз!
-            Да - "+", нет - "-".''')
-            ans = input('Ответ: ')
+            ans = err()
             if ans == '+':
                 continue
             else:
                 print('Конец!!')
                 break
     else:
-        print('''\nГде-то ты допустил ошибку, давай попробуем еще раз!
-         Да - "+", нет - "-".''')
-        ans = input('Ответ: ')
+        ans = err()
         if ans == '+':
             beginning = 0
             end = len(checklist) - 1
