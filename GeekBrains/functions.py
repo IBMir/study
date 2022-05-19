@@ -20,3 +20,4 @@ if __name__ == '__main__':
     print(filter(s, odd))
     print(filter(s, more4))
     print(filter(s, lambda i: i < 4))
+    print('Привет!!')
