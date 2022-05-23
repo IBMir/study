@@ -1,3 +1,5 @@
+from random import randint
+
 class Military():
     '''Обычный военный'''
 
@@ -31,10 +33,16 @@ class Soldier(Military):
     def toit(self):
         print(f'{str(self.position).title()}, бегом чистить {self.toilet}!!!')
 
+class Die():
+    '''Шестигранный кубик'''
+
+    def __init__(self, sides=6):
+        self.sides = sides
+
+    def roll_die(self):
+        '''Бросок кубика'''
+        return randint(1, self.sides)
+
 if __name__ == '__main__':
-    officer = Military('майор', 'глебов', 'командир конюшни')
-    officer.greeting()
-    officer.new_renk()
-    sold = Soldier('рядовой', 'паутов', 'затупок')
-    sold.slave()
-    sold.toit()
+    cast = Die()
+    print(cast.roll_die())
