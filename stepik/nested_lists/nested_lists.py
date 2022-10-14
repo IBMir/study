@@ -1,14 +1,40 @@
+# На вход программе подается натуральное число nn. Напишите программу, которая выводит первые nn строк треугольника Паскаля.
+
+from math import factorial
+
+def pask(n):
+    b = []
+    for i in range(n + 1):
+        b.append(int((factorial(n)) / (factorial(i) * factorial(n - i))))
+    return b
+
+# # n = int(input())
+# for i in range(n):
+#     # print(*pask(i))
+
+# На вход программе подается строка текста, содержащая символы. Напишите программу, которая упаковывает
+# последовательности одинаковых символов заданной строки в подсписки.
+
+s = input()
+res = [[s[0]]]
+for i in range(2, len(s), 2):
+    if s[i] in res[-1]:
+        res[-1].append(s[i])
+    else:
+        res.append([s[i]])
+print(res)
+
 # Дополните приведенный код, используя списочный метод append(), чтобы список list1 имел вид:
 # list1 = [10, 20, [300, 400, [5000, 6000, 7000], 500], 30, 40]
 
 list1 = [10, 20, [300, 400, [5000, 6000], 500], 30, 40]
 list1[2][2].append(7000)
-print(list1)
+# print(list1)
 
 list1 = ['a', 'b', ['c', ['d', 'e', ['f', 'g'], 'k'], 'l'], 'm', 'n']
 sub_list = ['h', 'i', 'j']
 list1[2][1][2] += sub_list
-print(list1)
+# print(list1)
 
 # Дополните приведенный код, используя цикл for и встроенную функцию max(), чтобы он выводил один общий
 # максимальный элемент среди всех элементов вложенных списков list1.
@@ -18,15 +44,15 @@ maximum = -1
 for i in list1:
     if max(i) > maximum:
         maximum = max(i)
-print(maximum)
+# print(maximum)
 
 list1 = [[1, 7, 8], [9, 7, 102], [102, 106, 105], [100, 99, 98, 103], [1, 2, 3]]
 for i in range(len(list1)):
     list1[i].reverse()
-print(list1)
+# print(list1)
 
 # Дополните приведенный код так, чтобы он выводил единственное число: сумму всех чисел списка list1 разделённую
 # на общее количество всех чисел.
 
 list1 = [[1, 7, 8], [9, 7, 102], [102, 106, 105], [100, 99, 98, 103], [1, 2, 3]]
-print(sum([sum(i) for i in list1]) / sum([len(i) for i in list1]))
+# print(sum([sum(i) for i in list1]) / sum([len(i) for i in list1]))
