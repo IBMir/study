@@ -24,7 +24,7 @@
 #         print(i.pop(0), end=' ')
 #     print()
 
-#Следом квадратной матрицы называется сумма элементов главной диагонали. Напишите программу, которая выводит след заданной квадратной матрицы.
+# Следом квадратной матрицы называется сумма элементов главной диагонали. Напишите программу, которая выводит след заданной квадратной матрицы.
 
 # n = int(input())
 # print(sum([int(input().split()[i]) for i in range(n)]))
@@ -40,3 +40,35 @@
 #         if y > sr:
 #             count += 1
 #     print(count)
+
+# n = int(input())
+# matr = [[int(i) for i in input().split()] for i in range(n)]
+# res = matr[0][0]
+# for i in range((len(matr) + 2) // 2):
+#     for y in range(i + 1):
+#         if max(matr[i][y], matr[- i - 1][y], matr[i][- y - 1], matr[- i - 1][- y - 1]) > res:
+#             res = max(matr[i][y], matr[- i - 1][y], matr[i][- y - 1], matr[- i - 1][- y - 1])
+# print(res)
+
+# Квадратная матрица разбивается на четыре четверти, ограниченные главной и побочной диагоналями: верхнюю, нижнюю, левую и правую.
+# Напишите программу, которая вычисляет сумму элементов: верхней четверти; правой четверти; нижней четверти; левой четверти.
+
+n = int(input())
+matr = [[int(i) for i in input().split()] for i in range(n)]
+quarters = [0, 0, 0, 0]
+for i in range(n):
+    for j in range(n):
+        if i < j:
+            if i + j < n - 1:
+                quarters[0] += matr[i][j]
+            elif i + j >= n:
+                quarters[1] += matr[i][j]
+        elif i > j:
+            if i + j < n - 1:
+                quarters[3] += matr[i][j]
+            elif i + j >= n:
+                quarters[2] += matr[i][j]
+print(f'''Верхняя четверть: {quarters[0]}
+Правая четверть: {quarters[1]}
+Нижняя четверть: {quarters[2]}
+Левая четверть: {quarters[3]}''')
